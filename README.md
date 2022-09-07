@@ -13,7 +13,7 @@ npx hardhat node
 #deploy contracts to local blockchain
 npx hardhat
 ```
-
+---
 ##Fresh project initialization using hardhat + svelte(for frontend)
 
 1. Download node.js if you don't already have it from https://nodejs.org/en/

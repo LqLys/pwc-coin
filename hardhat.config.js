@@ -19,8 +19,8 @@ module.exports = {
       chainId: 1337
     },
     rinkeby: {
-      url: "https://eth-rinkeby.alchemyapi.io/v2/XzHMMRUrG6QlFA7A_c34TyzicD625Kjq",
-      accounts: [`c63955bd22f96e8849167c2dc2ee62526fc2a64ed58720da666fd0df79f49e4e`],
+      url: "gateway-uri (i.e alchemy, infura)",
+      accounts: [`account private key`],
 
     },
 
