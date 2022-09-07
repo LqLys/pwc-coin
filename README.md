@@ -1,7 +1,20 @@
 #Intro to Ethereum Smart Contracts
 
+##How to run project
+```shell
+#run svelte front app (http://localhost:8080 - by defult)
+npm run dev
+```
+```shell
+#run blockchain locally using hardhat
+npx hardhat node
+```
+```shell
+#deploy contracts to local blockchain
+npx hardhat
+```
 
-new project initialization using hardhat + svelte(for frontend)
+##Fresh project initialization using hardhat + svelte(for frontend)
 
 1. Download node.js if you don't already have it from https://nodejs.org/en/
 2. Initialize project
