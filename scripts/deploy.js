@@ -7,18 +7,22 @@
 const hre = require("hardhat");
 
 async function main() {
-  const currentTimestampInSeconds = Math.round(Date.now() / 1000);
-  const ONE_YEAR_IN_SECS = 365 * 24 * 60 * 60;
-  const unlockTime = currentTimestampInSeconds + ONE_YEAR_IN_SECS;
 
-  const lockedAmount = hre.ethers.utils.parseEther("1");
+  const PWCToken = await hre.ethers.getContractFactory("PWCToken");
+  const pwcToken = await PWCToken.deploy("PWCToken", "PWC");
 
-  const Lock = await hre.ethers.getContractFactory("Lock");
-  const lock = await Lock.deploy(unlockTime, { value: lockedAmount });
+  await pwcToken.deployed();
 
-  await lock.deployed();
+  console.log("PWC Token deployed to: ", pwcToken.address);
 
-  console.log("Lock with 1 ETH deployed to:", lock.address);
+  const PWCShop = await hre.ethers.getContractFactory("PWCShop");
+  const pwcShop = await PWCShop.deploy(pwcToken.address)
+
+  await pwcShop.deployed();
+
+  console.log("PWC Shop deployed to: ", pwcShop.address);
+
+
 }
 
 // We recommend this pattern to be able to use async/await everywhere
