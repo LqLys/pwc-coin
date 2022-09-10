@@ -6,8 +6,6 @@
     import {onDestroy, onMount} from "svelte";
     import Input from "./Input.svelte";
 
-    export let name;
-
     const pwcTokenAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
     const pwcShopAddress = "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512";
     let currentAccount;
@@ -315,7 +313,7 @@
                                 <td>{utils.formatEther(ticket.price.toString())}</td>
                                 <td>{ticket.forSale}</td>
                                 <td>{ticket.valid}</td>
-                                {#if ticket.forSale}
+                                {#if ticket.forSale && ticket.owner.toLowerCase() !== currentAccount.toLowerCase()}
                                     <td>
                                         <button class="btn btn-light" on:click={buyTicket(ticket)}>Buy</button>
                                     </td>

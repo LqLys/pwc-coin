@@ -18,11 +18,11 @@ module.exports = {
     hardhat: {
       chainId: 1337
     },
-    rinkeby: {
-      url: "gateway-uri (i.e alchemy, infura)",
-      accounts: [`account private key`],
-
-    },
+    // rinkeby: {
+    //   url: "gateway-uri (i.e alchemy, infura)",
+    //   accounts: [`account private key`],
+    //
+    // },
 
   }
 };
