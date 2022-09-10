@@ -1,5 +1,10 @@
 # Intro to Ethereum Smart Contracts
 
+## Prerequisites
+
+* node.js (https://nodejs.org/en/)
+* metamask (https://metamask.io/)
+
 ## How to run project
 ```shell
 #run svelte front app (http://localhost:8080 - by defult)
@@ -11,13 +16,16 @@ npx hardhat node
 ```
 ```shell
 #deploy contracts to local blockchain
-npx hardhat
+npx hardhat run scripts/deploy.js --network localhost
+```
+```shell
+#deploy contracts to other networks defined in hardhat.config.js file
+npx hardhat run scripts/deploy.js --network <network name>
 ```
 ---
-## Fresh project initialization using hardhat + svelte(for frontend)
+## How to create a new fresh project using hardhat + svelte(for frontend)
 
-1. Download node.js if you don't already have it from https://nodejs.org/en/
-2. Initialize project
+1. Initialize project
 ```shell
 #Initialize Svelte project (you can use any other frontend framework if you want, I just like svelte)
 npx degit sveltejs/template <project name>
@@ -25,7 +33,7 @@ cd <project name>
 #install required libraries
 npm install ethers hardhat chai @nomiclabs/hardhat-ethers @nomicfoundation/hardhat-toolbox
 ```
-3. Delete "scripts" folder and "readme.md" file (there's a conflict of filename preventing initialization of hardhat project)
+2. Delete "scripts" folder and "readme.md" file (there's a conflict of file names preventing initialization of hardhat project)
 ```shell
 #initialize hardhat project
 npx hardhat
@@ -34,11 +42,11 @@ npm install @openzeppelin/contracts
 #install rollup/plugin-json
 npm i @rollup/plugin-json
 ```
-4. add below import to rollup.config.js file:  
+3. add below import to rollup.config.js file:  
 ```javascript
 import json from "@rollup/plugin-json";
 ```
-5. add "json()" inside rollup.config.js file
+4. add "json()" inside rollup.config.js file
 ```javascript
 {
     ...
@@ -48,7 +56,7 @@ import json from "@rollup/plugin-json";
 }
 ```
 
-6. replace module.exports within hardhat.config.js file to:
+5. replace module.exports within hardhat.config.js file to:
 ```javascript
 module.exports = {
     solidity: {
